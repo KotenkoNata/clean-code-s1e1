@@ -33,7 +33,8 @@
 
 }
 
-.task-input, .task-label {
+.task-input,
+.task-label {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
@@ -48,7 +49,8 @@ ul {
   padding: 0;
 }
 
-li, h3 {
+li,
+h3 {
   list-style: none;
 }
 
