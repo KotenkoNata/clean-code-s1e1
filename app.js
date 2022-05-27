@@ -13,7 +13,6 @@ var addButton=document.getElementsByTagName("button")[0];//first button
 var incompleteTaskHolder=document.getElementById("to-do-list list");//ul of #incompleteTasks
 var completedTasksHolder=document.getElementById("completed-tasks-list");//completed-tasks
 
-console.log(taskInput, addButton, incompleteTaskHolder, completedTasksHolder)
 //New task list item
 var createNewTaskElement=function(taskString){
 
@@ -89,10 +88,14 @@ var editTask=function(){
 
     var listItem=this.parentNode;
 
-    var editInput=listItem.querySelector('input[type=text]');
-    var label=listItem.querySelector("label");
-    var editBtn=listItem.querySelector(".edit");
-    var containsClass=listItem.classList.contains("editMode");
+    console.log(`listItem`,listItem)
+
+    var editInput=listItem.querySelector('.to-do-list__input');
+    var label=listItem.querySelector(".task-label");
+    var editBtn=listItem.querySelector(".button");
+    var containsClass=listItem.classList.contains("list__item_modified");
+
+    console.log(listItem, editInput, label, editBtn, containsClass)
     //If class of the parent is .editmode
     if(containsClass){
 
@@ -106,7 +109,9 @@ var editTask=function(){
     }
 
     //toggle .editmode on the parent.
-    listItem.classList.toggle("editMode");
+    editInput.classList.toggle("to-do-list__input_modified");
+    label.classList.toggle("to-do-list__label_modified");
+    listItem.classList.toggle("list__item_modified");
 };
 
 
@@ -165,8 +170,6 @@ var bindTaskEvents=function(taskListItem, checkBoxEventHandler){
     var checkBox=taskListItem.querySelector("input[type=checkbox]");
     var editButton=taskListItem.querySelector("button.to-do-list__button_edit");
     var deleteButton=taskListItem.querySelector("button.delete-button");
-
-    console.log(checkBox, editButton, deleteButton)
 
 
     //Bind editTask to edit button.
