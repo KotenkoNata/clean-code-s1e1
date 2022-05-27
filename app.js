@@ -71,11 +71,10 @@ var addTask=function(){
 
     //Append listItem to incompleteTaskHolder
     incompleteTaskHolder.appendChild(listItem);
+
     bindTaskEvents(listItem, taskCompleted);
 
     taskInput.value="";
-
-    console.log(taskInput)
 
 }
 
@@ -88,9 +87,7 @@ var editTask=function(){
 
     var listItem=this.parentNode;
 
-    console.log(`listItem`,listItem)
-
-    var editInput=listItem.querySelector('.to-do-list__input');
+    var editInput=listItem.querySelector('.task-input');
     var label=listItem.querySelector(".task-label");
     var editBtn=listItem.querySelector(".button");
     var containsClass=listItem.classList.contains("list__item_modified");
@@ -148,7 +145,8 @@ var taskIncomplete=function(){
     //When the checkbox is unchecked
     //Append the task list item to the #incompleteTasks.
     var listItem=this.parentNode;
-
+    var label = listItem.querySelector('.task-label');
+    label.classList.remove("completed-tasks-list__label");
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
