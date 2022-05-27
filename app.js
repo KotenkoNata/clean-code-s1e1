@@ -133,9 +133,12 @@ var taskCompleted=function(){
 
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
-    completedTasksHolder.appendChild(listItem);
-    bindTaskEvents(listItem, taskIncomplete);
+    console.log(listItem);
 
+    completedTasksHolder.appendChild(listItem);
+    var label = listItem.querySelector('.task-label');
+    label.classList.add("completed-tasks-list__label");
+    bindTaskEvents(listItem, taskIncomplete);
 }
 
 
@@ -145,6 +148,7 @@ var taskIncomplete=function(){
     //When the checkbox is unchecked
     //Append the task list item to the #incompleteTasks.
     var listItem=this.parentNode;
+
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
@@ -168,7 +172,7 @@ var bindTaskEvents=function(taskListItem, checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
     var checkBox=taskListItem.querySelector("input[type=checkbox]");
-    var editButton=taskListItem.querySelector("button.to-do-list__button_edit");
+    var editButton=taskListItem.querySelector("button.button");
     var deleteButton=taskListItem.querySelector("button.delete-button");
 
 
