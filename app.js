@@ -8,11 +8,10 @@
 
 // Event handling, user interaction is what starts the code execution.
 
-var taskInput=document.getElementById("new-task");//Add a new task.
-var addButton=document.getElementsByTagName("button")[0];//first button
-var incompleteTaskHolder=document.getElementById("incompleteTasks");//ul of #incompleteTasks
-var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
-
+var taskInput=document.getElementById("new-task-label");//Add a new task.
+var addButton=document.getElementsByClassName("section__button")[0];//first button
+var incompleteTaskHolder=document.getElementsByClassName("to-do-list")[0];//ul of #incompleteTasks
+var completedTasksHolder=document.getElementsByClassName("completed-tasks-list")[0];//completed-tasks
 
 //New task list item
 var createNewTaskElement=function(taskString){
@@ -41,9 +40,10 @@ var createNewTaskElement=function(taskString){
     editInput.className="task";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
+    editButton.className="button";
 
-    deleteButton.className="delete";
+    deleteButton.className="delete-button";
+    deleteButtonImg.className="delete-button__image";
     deleteButtonImg.src='./remove.svg';
     deleteButton.appendChild(deleteButtonImg);
 
